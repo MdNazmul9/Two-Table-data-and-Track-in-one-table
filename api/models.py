@@ -24,8 +24,8 @@ class Reference(models.Model):
     amt = models.IntegerField()
     date = models.DateTimeField()
     receiver_name = models.CharField(max_length=200)
-    order = models.ForeignKey(Order, blank=True, null=True, on_delete=models.CASCADE, related_name='odr')
-    commission = models.ForeignKey(Order, blank=True, null=True, on_delete=models.CASCADE, related_name='commit')
+    order = models.ForeignKey(Order, blank=True, null=True,related_name='odr', on_delete=models.CASCADE, )
+    commission = models.ForeignKey(Commission, blank=True, null=True, related_name='comm', on_delete=models.CASCADE, )
 
     def __str__(self):
         return self.receiver_name
